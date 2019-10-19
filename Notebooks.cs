@@ -9,5 +9,7 @@ namespace Computers
     class Notebooks : Computers
     {
         private int batteryTime;
+        
+
     }
 }

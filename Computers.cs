@@ -43,10 +43,12 @@ using System.Threading.Tasks;
 
 namespace Computers
 {
-    abstract class Computers
+    class Computers
     {
-        private ushort cpuNumber;
-        private uint memoryUmount;
-        private bool extensibility;
+        public ushort cpuNumber;
+        public uint memoryUmount;
+        public bool extensibility;
+        public bool osOn;
+        public bool powerOn;
     }
 }
