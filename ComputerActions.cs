@@ -6,53 +6,93 @@ using System.Threading.Tasks;
 
 namespace Computers
 {
-    class ComputerActions : IComputerActions
+
+    class ComputerActions : IComputerActions<Computers>
     {
-        void IComputerActions.Start(Computers computer)
+        public void PowerOff(Computers computer)
         {
-            if (computer.powerOn) {
-                computer.osOn = true;
-            }
-        }
-        void IComputerActions.Shutdown(Computers computer)
-        {
-            if (computer.powerOn) {
-                computer.osOn = false;
-            }
-        }
-        void IComputerActions.Restart(Computers computer)
-        {
-            IComputerActions tempAction = new ComputerActions();
-            if (computer.osOn)
+            if (computer.isPowerOn)
             {
+                if (computer is Notebooks)
+                {
+                    Notebooks notebook = (Notebooks)computer;
+                    if (!notebook.isBatteryInstalled && !notebook.isChargerOn) { notebook.isPowerOn = false; }
+                    else if (notebook.isBatteryInstalled && notebook.batteryPercentage < 1) { notebook.isPowerOn = false; }
+                }
+                else
+                {
+                    computer.isPowerOn = false;
+                }
+            }
+        }
+
+        public void PowerOn(Computers computer)
+        {
+            if(!computer.isPowerOn) {
+                if (computer is Servers)
+                {
+                    Servers server = (Servers)computer;
+                    {
+                        ComputerActions tempAction = new ComputerActions();
+                        server.isPowerOn = true;
+                        tempAction.Start(server);
+                    }
+                }
+                else if (computer is Notebooks)
+                {                    
+                    Notebooks notebook = (Notebooks)computer;
+                    if (notebook.isBatteryInstalled && notebook.batteryPercentage >= 1)
+                    {
+                        notebook.isPowerOn = true;
+                    }
+                    else if (!notebook.isBatteryInstalled && notebook.isChargerOn)
+                    {
+                        notebook.isPowerOn = true;
+                    }
+                }
+                else
+                {
+                    computer.isPowerOn = true;
+                }
+            }
+        }
+
+        public void PushStartButton(Computers computer)
+        {
+            ComputerActions tempAction = new ComputerActions();
+            if (!computer.isOSOn && computer.isPowerOn)
+            {
+                tempAction.Start(computer);
+            }
+            else if (computer.isOSOn)
+            {
+                tempAction.Shutdown(computer);
+            }
+        }
+
+        public void Restart(Computers computer)
+        {
+            if (computer.isPowerOn && computer.isOSOn)
+            {
+                ComputerActions tempAction = new ComputerActions();
                 tempAction.Shutdown(computer);
                 tempAction.Start(computer);
             }
         }
-        void IComputerActions.PowerOn(Computers computer)
+
+        public void Shutdown(Computers computer)
         {
-            if (!computer.powerOn)
+            if (computer.isPowerOn && computer.isOSOn)
             {
-                computer.powerOn = true;
+                computer.isOSOn = false;
             }
         }
-        void IComputerActions.PowerOff(Computers computer)
+
+        public void Start(Computers computer)
         {
-            if (computer.powerOn)
+            if (computer.isPowerOn && !computer.isOSOn)
             {
-                computer.powerOn = false;
-            }
-        }
-        void IComputerActions.PushStartButton(Computers computer)
-        {
-            IComputerActions tempAction = new ComputerActions();
-            if (!computer.powerOn)
-            {
-                tempAction.Start(computer);
-            }
-            else
-            {
-                tempAction.Shutdown(computer);
+                computer.isOSOn = true;
             }
         }
     }

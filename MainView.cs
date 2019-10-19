@@ -12,9 +12,16 @@ namespace Computers
 {
     public partial class MainView : Form
     {
+        IComputerActions<Computers> actions;
         public MainView()
         {
             InitializeComponent();
+            actions = new ComputerActions();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            actions.PowerOn(new Notebooks());
         }
     }
 }

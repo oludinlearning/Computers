@@ -8,8 +8,10 @@ namespace Computers
 {
     class Notebooks : Computers
     {
-        private int batteryTime;
-        
-
+        public bool isOpen;
+        public bool isBatteryCharging;
+        public bool isChargerOn;
+        public bool isBatteryInstalled;
+        public uint batteryPercentage;
     }
 }

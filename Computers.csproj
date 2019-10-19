@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="ComputerActions.cs" />
     <Compile Include="IComputerActions.cs" />
+    <Compile Include="NotebookActions.cs" />
     <Compile Include="Notebooks.cs" />
     <Compile Include="Computers.cs" />
     <Compile Include="MainView.cs">

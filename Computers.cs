@@ -48,7 +48,7 @@ namespace Computers
         public ushort cpuNumber;
         public uint memoryUmount;
         public bool extensibility;
-        public bool osOn;
-        public bool powerOn;
+        public bool isOSOn;
+        public bool isPowerOn;
     }
 }

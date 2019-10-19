@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Computers
 {
-    interface IComputerActions
+    interface IComputerActions<T>
     {
-        void Start(Computers computer);
-        void Shutdown(Computers computer);
-        void Restart(Computers computer);
-        void PowerOn(Computers computer);
-        void PowerOff(Computers computer);
-        void PushStartButton(Computers computer);
+        void Start(T computer);
+        void Shutdown(T computer);
+        void Restart(T computer);
+        void PowerOn(T computer);
+        void PowerOff(T computer);
+        void PushStartButton(T computer);
     }
 }
