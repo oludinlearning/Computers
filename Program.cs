@@ -16,7 +16,10 @@ namespace Computers
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainView());
+
+            MainView view = new MainView();
+            Presenter presernter = new Presenter(view);
+            Application.Run(view);
         }
     }
 }

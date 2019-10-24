@@ -11,48 +11,48 @@ namespace Computers
     {
         public void PowerOff(Computers computer)
         {
-            if (computer.isPowerOn)
+            if (computer.IsPowerOn)
             {
                 if (computer is Notebooks)
                 {
                     Notebooks notebook = (Notebooks)computer;
-                    if (!notebook.isBatteryInstalled && !notebook.isChargerOn) { notebook.isPowerOn = false; }
-                    else if (notebook.isBatteryInstalled && notebook.batteryPercentage < 1) { notebook.isPowerOn = false; }
+                    if (!notebook.IsBatteryInstalled && !notebook.IsChargerOn) { notebook.IsPowerOn = false; }
+                    else if (notebook.IsBatteryInstalled && notebook.BatteryPercentage < 1) { notebook.IsPowerOn = false; }
                 }
                 else
                 {
-                    computer.isPowerOn = false;
+                    computer.IsPowerOn = false;
                 }
             }
         }
 
         public void PowerOn(Computers computer)
         {
-            if(!computer.isPowerOn) {
+            if(!computer.IsPowerOn) {
                 if (computer is Servers)
                 {
                     Servers server = (Servers)computer;
                     {
                         ComputerActions tempAction = new ComputerActions();
-                        server.isPowerOn = true;
+                        server.IsPowerOn = true;
                         tempAction.Start(server);
                     }
                 }
                 else if (computer is Notebooks)
                 {                    
                     Notebooks notebook = (Notebooks)computer;
-                    if (notebook.isBatteryInstalled && notebook.batteryPercentage >= 1)
+                    if (notebook.IsBatteryInstalled && notebook.BatteryPercentage >= 1)
                     {
-                        notebook.isPowerOn = true;
+                        notebook.IsPowerOn = true;
                     }
-                    else if (!notebook.isBatteryInstalled && notebook.isChargerOn)
+                    else if (!notebook.IsBatteryInstalled && notebook.IsChargerOn)
                     {
-                        notebook.isPowerOn = true;
+                        notebook.IsPowerOn = true;
                     }
                 }
                 else
                 {
-                    computer.isPowerOn = true;
+                    computer.IsPowerOn = true;
                 }
             }
         }
@@ -60,11 +60,11 @@ namespace Computers
         public void PushStartButton(Computers computer)
         {
             ComputerActions tempAction = new ComputerActions();
-            if (!computer.isOSOn && computer.isPowerOn)
+            if (!computer.IsOSOn && computer.IsPowerOn)
             {
                 tempAction.Start(computer);
             }
-            else if (computer.isOSOn)
+            else if (computer.IsOSOn)
             {
                 tempAction.Shutdown(computer);
             }
@@ -72,7 +72,7 @@ namespace Computers
 
         public void Restart(Computers computer)
         {
-            if (computer.isPowerOn && computer.isOSOn)
+            if (computer.IsPowerOn && computer.IsOSOn)
             {
                 ComputerActions tempAction = new ComputerActions();
                 tempAction.Shutdown(computer);
@@ -82,17 +82,17 @@ namespace Computers
 
         public void Shutdown(Computers computer)
         {
-            if (computer.isPowerOn && computer.isOSOn)
+            if (computer.IsPowerOn && computer.IsOSOn)
             {
-                computer.isOSOn = false;
+                computer.IsOSOn = false;
             }
         }
 
         public void Start(Computers computer)
         {
-            if (computer.isPowerOn && !computer.isOSOn)
+            if (computer.IsPowerOn && !computer.IsOSOn)
             {
-                computer.isOSOn = true;
+                computer.IsOSOn = true;
             }
         }
     }

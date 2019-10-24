@@ -43,12 +43,20 @@ using System.Threading.Tasks;
 
 namespace Computers
 {
-    class Computers
+    public class Computers
     {
-        public ushort cpuNumber;
-        public uint memoryUmount;
-        public bool extensibility;
-        public bool isOSOn;
-        public bool isPowerOn;
+        protected string type;
+        private ushort cpuNumber;
+        private uint memoryUmount;
+        private bool extensibility;
+        private bool isOSOn;
+        private bool isPowerOn;
+
+        public string Type { get { return type; } set { type = value; } }
+        public ushort CPUNumber { get { return cpuNumber; } set { cpuNumber = value; } }
+        public uint MemoryUmount { get { return memoryUmount; } set { memoryUmount = value; } }
+        public bool Extensibility { get { return extensibility; } set { extensibility = value; } }
+        public bool IsOSOn { get { return isOSOn; } set { isOSOn = value; } }
+        public bool IsPowerOn { get { return isPowerOn; } set { isPowerOn = value; } }
     }
 }

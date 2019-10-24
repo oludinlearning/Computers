@@ -1,27 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Computers
 {
-    public partial class MainView : Form
+    public partial class MainView : Form, IMainView
     {
-        IComputerActions<Computers> actions;
         public MainView()
         {
             InitializeComponent();
-            actions = new ComputerActions();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        public delegate void RadioChecked();
+        public event RadioChecked RadioNotebook_Checked;
+        public event RadioChecked RadioPC_Checked;
+        public event RadioChecked RadioServer_Checked;
+        public void SetComputerType(string computerType)
         {
-            actions.PowerOn(new Notebooks());
+            this.ComputerType.Text = computerType;
+        }
+        
+        private void PowerOn_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void Shutdown_Button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RadioNotebook_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioNotebook_Checked();
+        }
+
+        private void RadioPC_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioPC_Checked();
+        }
+
+        private void RadioServer_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioServer_Checked();
         }
     }
 }

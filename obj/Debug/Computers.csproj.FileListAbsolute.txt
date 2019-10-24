@@ -1,0 +1,10 @@
+C:\Users\Алексей\Documents\Visual Studio 2019\Projects\Computers\bin\Debug\Computers.exe.config
+C:\Users\Алексей\Documents\Visual Studio 2019\Projects\Computers\bin\Debug\Computers.exe
+C:\Users\Алексей\Documents\Visual Studio 2019\Projects\Computers\bin\Debug\Computers.pdb
+C:\Users\Алексей\Documents\Visual Studio 2019\Projects\Computers\obj\Debug\Computers.csprojAssemblyReference.cache
+C:\Users\Алексей\Documents\Visual Studio 2019\Projects\Computers\obj\Debug\Computers.MainView.resources
+C:\Users\Алексей\Documents\Visual Studio 2019\Projects\Computers\obj\Debug\Computers.Properties.Resources.resources
+C:\Users\Алексей\Documents\Visual Studio 2019\Projects\Computers\obj\Debug\Computers.csproj.GenerateResource.cache
+C:\Users\Алексей\Documents\Visual Studio 2019\Projects\Computers\obj\Debug\Computers.csproj.CoreCompileInputs.cache
+C:\Users\Алексей\Documents\Visual Studio 2019\Projects\Computers\obj\Debug\Computers.exe
+C:\Users\Алексей\Documents\Visual Studio 2019\Projects\Computers\obj\Debug\Computers.pdb
