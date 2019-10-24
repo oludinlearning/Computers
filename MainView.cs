@@ -18,7 +18,16 @@ namespace Computers
         {
             this.ComputerType.Text = computerType;
         }
-        
+
+        public void SetComputerPowerstate(string computerPowerstate)
+        {
+            this.Powerstate.Text = computerPowerstate;
+        }
+
+        public void SetComputerOSState(string osstate)
+        {
+            this.OSState.Text = osstate;
+        }
         private void PowerOn_Click(object sender, EventArgs e)
         {
         }

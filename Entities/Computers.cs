@@ -46,11 +46,11 @@ namespace Computers
     public class Computers
     {
         protected string type;
-        private ushort cpuNumber;
-        private uint memoryUmount;
-        private bool extensibility;
-        private bool isOSOn;
-        private bool isPowerOn;
+        protected ushort cpuNumber;
+        protected uint memoryUmount;
+        protected bool extensibility;
+        protected bool isOSOn;
+        protected bool isPowerOn;
 
         public string Type { get { return type; } set { type = value; } }
         public ushort CPUNumber { get { return cpuNumber; } set { cpuNumber = value; } }
