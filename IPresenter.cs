@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Computers
 {
-    class Notebooks : Computers
+    interface IPresenter
     {
-        private int batteryTime;
+        void ShowNotebookData();
+        void ShowServerData();
     }
 }
